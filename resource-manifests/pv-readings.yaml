@@ -1,0 +1,10 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: my-pv
+spec:
+  storageClassName: my-storage-class
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce

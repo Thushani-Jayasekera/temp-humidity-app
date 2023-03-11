@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ur-microservice
+  labels:
+    app: ur-microservice
+spec:
+  selector:
+    matchLabels:
+      app: ur-microservice
+  replicas: 3
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: 
+      maxUnavailable: 1
+      maxSurge: 1 
+  template:
+    metadata:
+      labels:
+        app: ur-microservice
+    spec:
+      containers:
+      - image: thushanijay/temprature-reader-ms:new
+        imagePullPolicy: Always
+        name: ur-microservice
+        ports:
+          - containerPort: 8002
+        volumeMounts:
+          - name: readings
+            mountPath: /readings
+      volumes:
+      - name: readings
+        persistentVolumeClaim:
+          claimName: my-pvc-readings
