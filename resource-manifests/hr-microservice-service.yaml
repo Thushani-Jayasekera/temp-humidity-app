@@ -4,7 +4,7 @@ metadata:
   name: hr-microservice
 spec:
   ports:
-    - port: 80
+    - port: 8004
       protocol: TCP
       targetPort: 8004
   selector:

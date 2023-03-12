@@ -15,10 +15,10 @@ DEFAULT_HEADERS = {
 }
 
 # Define the endpoint to read the temp CSV file
-@app.route('/read_temprature/<sector>', methods=["GET"])
+@app.route('/read_temperature/<sector>', methods=["GET"])
 def read_temprature(sector):
     # Construct the path to the CSV file
-    csv_path = '/readings/soil_temprature_readings_sector_'+ sector +'.csv'
+    csv_path = f'./readings/soil_temprature_readings_sector_'+ sector +'.csv'
 
     # Read the contents of the CSV file
     rows = []
@@ -41,7 +41,7 @@ def read_temprature(sector):
 @app.route('/read_humidity/<sector>', methods=["GET"])
 def read_humidity(sector):
     # Construct the path to the CSV file
-    csv_path = '/readings/soil_humidity_readings_sector_'+ sector +'.csv'
+    csv_path = f'./readings/soil_humidity_readings_sector_'+ sector +'.csv'
 
     # Read the contents of the CSV file
     rows = []

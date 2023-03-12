@@ -19,15 +19,15 @@ spec:
         app: tr-microservice                                  
     spec:
       containers:
-        - image: thushanijay/temprature-reader-ms:new
+        - image: dhaura/agri-app-tr:latest-x64
           imagePullPolicy: Always                        
           name: tr-microservice
           ports:
             - containerPort: 8003
           volumeMounts:
-            - name: readings
-              mountPath: /readings
+            - name: readings-pv
+              mountPath: /app/readings
       volumes:
-        - name: readings
+        - name: readings-pv
           persistentVolumeClaim:
-            claimName: my-pvc-readings
+            claimName: readings-pvc

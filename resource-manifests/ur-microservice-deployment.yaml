@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: ur-microservice
-  replicas: 3
+  replicas: 1
   minReadySeconds: 15
   strategy:
     type: RollingUpdate
@@ -21,15 +21,15 @@ spec:
         app: ur-microservice
     spec:
       containers:
-      - image: thushanijay/temprature-reader-ms:new
+      - image: dhaura/agri-app-ua:latest-x64
         imagePullPolicy: Always
         name: ur-microservice
         ports:
           - containerPort: 8002
         volumeMounts:
-          - name: readings
-            mountPath: /readings
+          - name: readings-pv
+            mountPath: /app/readings
       volumes:
-      - name: readings
+      - name: readings-pv
         persistentVolumeClaim:
-          claimName: my-pvc-readings
+          claimName: readings-pvc

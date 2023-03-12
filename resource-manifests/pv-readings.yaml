@@ -1,10 +1,11 @@
-kind: PersistentVolume
 apiVersion: v1
+kind: PersistentVolume
 metadata:
-  name: my-pv
+  name: readings-pv
 spec:
-  storageClassName: my-storage-class
+  storageClassName: standard
   capacity:
-    storage: 5Gi
+    storage: 1Gi
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
+  volumeMode: Filesystem

@@ -19,15 +19,16 @@ spec:
         app: hr-microservice                                  
     spec:
       containers:
-        - image: thushanijay/humidity-reader-ms:new
+        - image: dhaura/agri-app-hr:latest-x64
           imagePullPolicy: Always                        
           name: hr-microservice
           ports:
             - containerPort: 8004
           volumeMounts:
-            - name: readings
-              mountPath: /readings
+            - name: readings-pv
+              mountPath: /app/readings
       volumes:
-        - name: readings
+        - name: readings-pv
           persistentVolumeClaim:
-            claimName: my-pvc-readings
+            claimName: readings-pvc
+            
