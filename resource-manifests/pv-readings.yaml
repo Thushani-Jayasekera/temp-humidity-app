@@ -3,9 +3,10 @@ kind: PersistentVolume
 metadata:
   name: readings-pv
 spec:
-  storageClassName: standard
+  storageClassName: agri-store
   capacity:
-    storage: 1Gi
+    storage: 600Mi
   accessModes:
     - ReadWriteMany
-  volumeMode: Filesystem
+  hostPath:
+    path: "/agri-app"

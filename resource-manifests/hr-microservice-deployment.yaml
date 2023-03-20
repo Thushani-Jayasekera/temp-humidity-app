@@ -18,8 +18,9 @@ spec:
       labels:
         app: hr-microservice                                  
     spec:
+      nodeName: node22
       containers:
-        - image: dhaura/agri-app-hr:latest-x64
+        - image: dhaura/agri-app-hr:latest
           imagePullPolicy: Always                        
           name: hr-microservice
           ports:
@@ -31,4 +32,3 @@ spec:
         - name: readings-pv
           persistentVolumeClaim:
             claimName: readings-pvc
-            

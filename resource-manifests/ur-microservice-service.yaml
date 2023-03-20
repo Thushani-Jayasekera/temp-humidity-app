@@ -3,7 +3,6 @@ kind: Service
 metadata:
   name: ur-web-app-lb
 spec:
-  type: LoadBalancer
   ports:
   - port: 8002
     protocol: TCP

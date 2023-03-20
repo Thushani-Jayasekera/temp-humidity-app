@@ -18,8 +18,9 @@ spec:
       labels:
         app: tr-microservice                                  
     spec:
+      nodeName: node22
       containers:
-        - image: dhaura/agri-app-tr:latest-x64
+        - image: dhaura/agri-app-tr:latest
           imagePullPolicy: Always                        
           name: tr-microservice
           ports:

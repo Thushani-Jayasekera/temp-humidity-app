@@ -20,16 +20,17 @@ spec:
       labels:
         app: ur-microservice
     spec:
+      nodeName: node22
       containers:
-      - image: dhaura/agri-app-ua:latest-x64
-        imagePullPolicy: Always
-        name: ur-microservice
-        ports:
-          - containerPort: 8002
-        volumeMounts:
-          - name: readings-pv
-            mountPath: /app/readings
+        - image: dhaura/agri-app-ua:latest
+          imagePullPolicy: Always
+          name: ur-microservice
+          ports:
+            - containerPort: 8002
+          volumeMounts:
+            - name: readings-pv
+              mountPath: /app/readings
       volumes:
-      - name: readings-pv
-        persistentVolumeClaim:
-          claimName: readings-pvc
+        - name: readings-pv
+          persistentVolumeClaim:
+            claimName: readings-pvc
