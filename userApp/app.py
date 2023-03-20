@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from collections import deque
 import csv
 import random
 import datetime
@@ -24,7 +25,7 @@ def read_temprature(sector):
     rows = []
     with open(csv_path) as csv_file:
         csv_reader = csv.reader(csv_file)
-        for row in csv_reader:
+        for row in deque(csv_reader, 20):
             rows.append(row)
 
     # Return the contents of the CSV file as a JSON response
@@ -47,7 +48,7 @@ def read_humidity(sector):
     rows = []
     with open(csv_path) as csv_file:
         csv_reader = csv.reader(csv_file)
-        for row in csv_reader:
+        for row in deque(csv_reader, 20):
             rows.append(row)
 
     # Return the contents of the CSV file as a JSON response
