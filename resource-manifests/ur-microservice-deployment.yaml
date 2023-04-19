@@ -20,7 +20,6 @@ spec:
       labels:
         app: ur-microservice
     spec:
-      nodeName: node22
       containers:
         - image: dhaura/agri-app-ua:latest
           imagePullPolicy: Always

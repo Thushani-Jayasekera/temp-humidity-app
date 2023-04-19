@@ -18,7 +18,6 @@ spec:
       labels:
         app: hr-microservice                                  
     spec:
-      nodeName: node22
       containers:
         - image: dhaura/agri-app-hr:latest
           imagePullPolicy: Always                        
